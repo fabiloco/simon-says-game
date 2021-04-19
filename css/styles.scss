@@ -1,3 +1,77 @@
-body {
-    color: red;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import 'animations.scss';
+$font:'Roboto',
+sans-serif;
+$pieceTam: 250px;
+$blue: #2C9DA8;
+$violet: #B237CC;
+$orange: #DD8D34;
+$green: #6CA650;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    background-color: #CECECE;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameboard {
+    display: grid;
+    grid-template-columns: $pieceTam $pieceTam;
+    grid-template-rows: $pieceTam $pieceTam;
+    justify-content: center;
+    align-content: center;
+}
+
+.piece {
+    display: block;
+    width: $pieceTam;
+    height: $pieceTam;
+}
+
+.top-left {
+    background-color: $blue;
+    border-top-left-radius: 100%;
+}
+
+.top-right {
+    background-color: $violet;
+    border-top-right-radius: 100%;
+}
+
+.bottom-left {
+    background-color: $orange;
+    border-bottom-left-radius: 100%;
+}
+
+.bottom-right {
+    background-color: $green;
+    border-bottom-right-radius: 100%;
+}
+
+.button {
+    background-color: #DADEDF;
+    text-align: center;
+    position: absolute;
+    padding: 20px;
+    font-family: $font;
+    font-size: 3em;
+    animation: shadow-pop-tr-down 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+
+.button:hover {
+    transition: shadow-pop-tr 3s;
+    -webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+    animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+    cursor: pointer;
+}
+
+.button:active {
+    animation: shadow-pop-tr-down 0.1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
 }
