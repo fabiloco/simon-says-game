@@ -13,6 +13,10 @@ $green: #6CA650;
     box-sizing: border-box;
 }
 
+.hide {
+    display: none;
+}
+
 .main {
     background-color: #CECECE;
     height: 100vh;
@@ -62,6 +66,7 @@ $green: #6CA650;
     padding: 20px;
     font-family: $font;
     font-size: 3em;
+    border: 3px solid #3e3e3e;
     animation: shadow-pop-tr-down 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
 }
 
