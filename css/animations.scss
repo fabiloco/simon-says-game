@@ -17,6 +17,11 @@
     animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
 }
 
+.shadow-pop-down {
+    -webkit-animation: shadow-pop-down 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+    animation: shadow-pop-down 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+
 @-webkit-keyframes shadow-pop-tr {
     0% {
         -webkit-box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
