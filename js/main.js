@@ -7,17 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const bottomRightBtn = document.getElementById('bottom-right');
     const LAST_LVL = 10;
 
-
     class Game {
         constructor() {
             this.init();
             this.generateSequence();
-            this.nextLevel();
+            setTimeout(this.nextLevel, 1000);
+
         }
 
         init() {
+            this.nextLevel = this.nextLevel.bind(this);
             this.choosePiece = this.choosePiece.bind(this);
-            startBtn.classList.add('hide');
+            this.toggleBtnEmpezar();
+
             this.level = 1;
             this.buttons = {
                 topLeftBtn,
@@ -25,6 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 bottomLeftBtn,
                 bottomRightBtn
             }
+        }
+
+        toggleBtnEmpezar() {
+            if (startBtn.classList.contains('hide')) {
+                startBtn.classList.remove('hide');
+            } else {
+                startBtn.classList.add('hide');
+            }
+
         }
 
         generateSequence() {
@@ -105,19 +116,35 @@ document.addEventListener('DOMContentLoaded', () => {
             if (numbPiece === this.sequence[this.sublevel]) {
                 this.sublevel++;
                 if (this.sublevel === this.level) {
-                    this.level;
+                    this.level++;
                     this.removeClickEvents();
                     if (this.level === (LAST_LVL + 1)) {
-                        //Ganar
+                        this.gameWin();
                     } else {
-                        this.nextLevel();
+                        setTimeout(this.nextLevel, 2000);
                     }
                 }
             } else {
-                //perder
+                this.gameOver();
             }
         }
+        gameWin() {
+            swal('Simon says', 'You won!', 'success')
+                .then(() => {
+                    this.init();
+                });
+        }
+
+        gameOver() {
+            swal('Simon says', 'You fail!', 'error')
+                .then(() => {
+                    this.removeClickEvents();
+                    this.init();
+                });
+        }
     }
+
+
 
     function startGame() {
         //alert("The game's gonna start soon");
@@ -125,8 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     startBtn.addEventListener('click', () => {
-        setTimeout(() => {
-            startGame();
-        }, 500)
+        startGame();
     });
 });
