@@ -66,6 +66,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 .hide {
@@ -82,36 +83,44 @@
 
 .gameboard {
   display: grid;
-  grid-template-columns: 250px 250px;
-  grid-template-rows: 250px 250px;
+  grid-template-columns: 400px 400px;
+  grid-template-rows: 400px 400px;
   justify-content: center;
   align-content: center;
 }
 
 .piece {
   display: block;
-  width: 250px;
-  height: 250px;
+  width: 400px;
+  height: 400px;
+}
+
+.piece:hover {
+  opacity: 0.9;
 }
 
 .top-left {
   background-color: #2C9DA8;
   border-top-left-radius: 100%;
+  box-shadow: inset 20px 20px 60px #25858f, inset -20px -20px 60px #33b5c1;
 }
 
 .top-right {
   background-color: #B237CC;
   border-top-right-radius: 100%;
+  box-shadow: inset -20px 20px 60px #972fad, inset 20px -20px 60px #cd3feb;
 }
 
 .bottom-left {
   background-color: #DD8D34;
   border-bottom-left-radius: 100%;
+  box-shadow: inset 20px -20px 60px #bc782c, inset -20px 20px 60px #fea23c;
 }
 
 .bottom-right {
   background-color: #6CA650;
   border-bottom-right-radius: 100%;
+  box-shadow: inset -20px -20px 60px #5c8d44, inset 20px 20px 60px #7cbf5c;
 }
 
 .button {
@@ -119,14 +128,15 @@
   text-align: center;
   position: absolute;
   padding: 20px;
-  font-family: "Roboto", sans-serif;
   font-size: 3em;
   border: 3px solid #3e3e3e;
+  border-radius: 50px;
+  background: linear-gradient(315deg, #c4c8c9, #e9eeef);
+  box-shadow: inset -20px -20px 17px #b9bdbe, inset 20px 20px 17px #fbffff;
   animation: shadow-pop-tr-down 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
 
 .button:hover {
-  transition: shadow-pop-tr 3s;
   -webkit-animation: shadow-pop-tr 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) both;
   animation: shadow-pop-tr 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) both;
   cursor: pointer;
@@ -136,8 +146,12 @@
   animation: shadow-pop-tr-down 0.1s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
 
-.light {
-  opacity: 0.8;
+.piece-up {
+  animation: shadow-pop-tr 0.3s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}
+
+.piece-down {
+  animation: shadow-pop-tr-down 0.1s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
 
 /*# sourceMappingURL=styles.css.map */
